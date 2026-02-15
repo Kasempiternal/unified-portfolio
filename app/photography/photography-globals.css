@@ -1,0 +1,33 @@
+[data-site="photography"] {
+  --site-bg: #ffffff;
+  --site-fg: #000000;
+  --site-accent: #000000;
+  overflow-x: hidden;
+}
+
+[data-site="photography"],
+[data-site="photography"] a,
+[data-site="photography"] button {
+  cursor: none;
+}
+
+/* Lenis smooth scroll classes scoped to photography */
+[data-site="photography"] .lenis {
+  height: auto;
+}
+
+[data-site="photography"] .lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+[data-site="photography"] .lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+[data-site="photography"] .lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+[data-site="photography"] .lenis.lenis-scrolling iframe {
+  pointer-events: none;
+}

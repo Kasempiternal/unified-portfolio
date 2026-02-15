@@ -1,0 +1,42 @@
+/* Creative Dev - Scoped Styles */
+
+[data-site="creative-dev"] {
+  cursor: none;
+}
+
+[data-site="creative-dev"] a,
+[data-site="creative-dev"] button {
+  cursor: none;
+}
+
+[data-site="creative-dev"] canvas {
+  display: block;
+  touch-action: none;
+}
+
+[data-site="creative-dev"] .blend-difference {
+  mix-blend-mode: difference;
+}
+
+[data-site="creative-dev"] .text-balance {
+  text-wrap: balance;
+}
+
+[data-site="creative-dev"] .hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+[data-site="creative-dev"] .hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+[data-site="creative-dev"] ::selection {
+  background: #ffffff;
+  color: #000000;
+}
+
+[data-site="creative-dev"] ::-moz-selection {
+  background: #ffffff;
+  color: #000000;
+}

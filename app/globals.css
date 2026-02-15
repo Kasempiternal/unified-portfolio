@@ -1,0 +1,34 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --site-bg: #0f172a;
+    --site-fg: #f8fafc;
+    --site-primary: #6366f1;
+    --site-secondary: #8b5cf6;
+    --site-accent: #06b6d4;
+    --site-muted: #94a3b8;
+  }
+
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    background-color: var(--site-bg);
+    color: var(--site-fg);
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  .gpu-accelerated {
+    transform: translateZ(0);
+    will-change: transform;
+  }
+}

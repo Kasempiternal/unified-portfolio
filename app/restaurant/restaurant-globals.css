@@ -1,0 +1,86 @@
+[data-site="restaurant"] {
+  --burgundy: #722f37;
+  --cream: #f5f5dc;
+  --gold: #d4af37;
+}
+
+[data-site="restaurant"] * {
+  border-color: rgba(245, 245, 220, 0.2);
+}
+
+[data-site="restaurant"] h1,
+[data-site="restaurant"] h2,
+[data-site="restaurant"] h3,
+[data-site="restaurant"] h4,
+[data-site="restaurant"] h5,
+[data-site="restaurant"] h6 {
+  font-family: var(--font-playfair), serif;
+}
+
+[data-site="restaurant"] .container-custom {
+  @apply container mx-auto px-4 sm:px-6 lg:px-8;
+}
+
+[data-site="restaurant"] .section-padding {
+  @apply py-16 md:py-24 lg:py-32;
+}
+
+[data-site="restaurant"] .btn-primary {
+  @apply px-8 py-4 rounded-sm font-semibold tracking-wide
+         transition-all duration-300
+         focus:outline-none focus:ring-2 focus:ring-offset-2;
+  background-color: #722f37;
+  color: #f5f5dc;
+}
+
+[data-site="restaurant"] .btn-primary:hover {
+  background-color: #5a252c;
+}
+
+[data-site="restaurant"] .btn-primary:focus {
+  --tw-ring-color: #d4af37;
+}
+
+[data-site="restaurant"] .btn-secondary {
+  @apply px-8 py-4 rounded-sm font-semibold tracking-wide
+         transition-all duration-300
+         focus:outline-none focus:ring-2 focus:ring-offset-2;
+  border: 2px solid #722f37;
+  color: #722f37;
+}
+
+[data-site="restaurant"] .btn-secondary:hover {
+  background-color: #722f37;
+  color: #f5f5dc;
+}
+
+[data-site="restaurant"] .btn-secondary:focus {
+  --tw-ring-color: #d4af37;
+}
+
+[data-site="restaurant"] .text-gold-accent {
+  color: #d4af37;
+  font-family: var(--font-playfair), serif;
+  font-style: italic;
+}
+
+[data-site="restaurant"] .heading-xl {
+  @apply text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight;
+}
+
+[data-site="restaurant"] .heading-lg {
+  @apply text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight;
+}
+
+[data-site="restaurant"] .heading-md {
+  @apply text-2xl md:text-3xl lg:text-4xl font-semibold tracking-tight;
+}
+
+[data-site="restaurant"] .divider {
+  @apply w-24 h-0.5 mx-auto my-8;
+  background-color: #d4af37;
+}
+
+[data-site="restaurant"] .text-balance {
+  text-wrap: balance;
+}

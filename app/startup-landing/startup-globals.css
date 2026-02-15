@@ -1,0 +1,16 @@
+[data-site="startup-landing"] {
+  background: linear-gradient(180deg, #0f0f1a 0%, #1a1a2e 50%, #0f0f1a 100%);
+  min-height: 100vh;
+}
+
+[data-site="startup-landing"] .text-balance {
+  text-wrap: balance;
+}
+
+[data-site="startup-landing"] .gradient-text {
+  @apply bg-gradient-to-r from-purple-500 via-pink-500 to-purple-500 bg-clip-text text-transparent;
+}
+
+[data-site="startup-landing"] .glass-effect {
+  @apply bg-white/5 backdrop-blur-xl border border-white/10;
+}

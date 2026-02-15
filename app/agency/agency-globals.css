@@ -1,0 +1,13 @@
+[data-site="agency"] {
+  background-color: var(--site-bg);
+  color: var(--site-fg);
+}
+
+[data-site="agency"] .text-balance {
+  text-wrap: balance;
+}
+
+[data-site="agency"] .border-brutal {
+  border-width: 3px;
+  border-color: #000000;
+}

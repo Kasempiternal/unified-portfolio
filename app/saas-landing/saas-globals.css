@@ -1,0 +1,11 @@
+[data-site="saas-landing"] {
+  @apply bg-[#0a0a0b] text-white antialiased;
+}
+
+[data-site="saas-landing"] * {
+  scroll-behavior: smooth;
+}
+
+[data-site="saas-landing"] .text-balance {
+  text-wrap: balance;
+}
