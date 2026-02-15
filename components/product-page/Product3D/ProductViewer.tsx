@@ -1,16 +1,21 @@
 "use client";
 
 import { useEffect, useRef, Suspense, useLayoutEffect } from "react";
-import { Canvas, useFrame } from "@react-three/fiber";
-import { OrbitControls, PerspectiveCamera } from "@react-three/drei";
-import * as THREE from "three";
+import { Canvas } from "@react-three/fiber";
+import {
+  OrbitControls,
+  PerspectiveCamera,
+  Center,
+  Float,
+} from "@react-three/drei";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import WatchModel from "./WatchModel";
+import { StudioLighting } from "./StudioLighting";
 
 gsap.registerPlugin(ScrollTrigger);
 
-function ProductCube() {
-  const meshRef = useRef<any>(null);
+function WatchScene() {
   const groupRef = useRef<any>(null);
 
   useEffect(() => {
@@ -28,12 +33,15 @@ function ProductCube() {
         onUpdate: (self) => {
           if (groupRef.current) {
             groupRef.current.rotation.y = self.progress * Math.PI * 2;
-            groupRef.current.rotation.x = self.progress * Math.PI * 0.5;
           }
         },
       });
 
       ScrollTrigger.refresh();
+
+      return () => {
+        scrollTrigger.kill();
+      };
     }, 100);
 
     return () => {
@@ -41,30 +49,13 @@ function ProductCube() {
     };
   }, []);
 
-  useFrame((state) => {
-    if (meshRef.current) {
-      meshRef.current.position.y = Math.sin(state.clock.elapsedTime * 0.5) * 0.1;
-    }
-  });
-
   return (
     <group ref={groupRef}>
-      <mesh ref={meshRef} castShadow receiveShadow>
-        <boxGeometry args={[2, 2, 2]} />
-        <meshStandardMaterial
-          color="#cd7f32"
-          metalness={0.8}
-          roughness={0.2}
-          envMapIntensity={1.5}
-        />
-      </mesh>
-
-      <lineSegments>
-        <edgesGeometry>
-          <boxGeometry args={[2, 2, 2]} />
-        </edgesGeometry>
-        <lineBasicMaterial color="#ffffff" opacity={0.3} transparent />
-      </lineSegments>
+      <Float speed={1} rotationIntensity={0.2} floatIntensity={0.3}>
+        <Center>
+          <WatchModel />
+        </Center>
+      </Float>
     </group>
   );
 }
@@ -72,31 +63,22 @@ function ProductCube() {
 function Scene() {
   return (
     <>
-      <ambientLight intensity={0.4} />
-      <directionalLight
-        position={[10, 10, 5]}
-        intensity={1}
-        castShadow
-        shadow-mapSize-width={2048}
-        shadow-mapSize-height={2048}
-      />
-      <pointLight position={[-10, -10, -5]} intensity={0.5} color="#cd7f32" />
-      <spotLight
-        position={[0, 10, 0]}
-        angle={0.3}
-        penumbra={1}
-        intensity={0.5}
-        castShadow
-      />
+      <StudioLighting />
 
-      <ProductCube />
+      <WatchScene />
 
-      <PerspectiveCamera makeDefault position={[0, 0, 6]} fov={50} />
+      <PerspectiveCamera makeDefault position={[0, 1, 5]} fov={45} />
 
       <OrbitControls
-        enableZoom={false}
+        enableZoom={true}
         enablePan={false}
-        enableRotate={false}
+        enableRotate={true}
+        autoRotate={true}
+        autoRotateSpeed={0.5}
+        minDistance={3}
+        maxDistance={8}
+        minPolarAngle={Math.PI * 0.2}
+        maxPolarAngle={Math.PI * 0.7}
       />
     </>
   );
@@ -105,6 +87,7 @@ function Scene() {
 export default function ProductViewer() {
   const containerRef = useRef<HTMLDivElement>(null);
   const progressRef = useRef<HTMLDivElement>(null);
+  const ctxRef = useRef<gsap.Context | null>(null);
 
   useLayoutEffect(() => {
     if (!containerRef.current) return;
@@ -113,7 +96,7 @@ export default function ProductViewer() {
       const trigger = document.getElementById("product-viewer");
       if (!trigger || !containerRef.current) return;
 
-      const ctx = gsap.context(() => {
+      ctxRef.current = gsap.context(() => {
         ScrollTrigger.create({
           trigger: "#product-viewer",
           start: "top top",
@@ -140,8 +123,9 @@ export default function ProductViewer() {
     });
 
     return () => {
-      const ctx = gsap.context(() => {}, containerRef);
-      ctx.revert();
+      if (ctxRef.current) {
+        ctxRef.current.revert();
+      }
     };
   }, []);
 

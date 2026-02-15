@@ -121,7 +121,9 @@ export default function HubHero() {
           {/* Enhanced CTAs with better visual hierarchy */}
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-6">
             <a
-              href="#contact"
+              href="https://www.fiverr.com"
+              target="_blank"
+              rel="noopener noreferrer"
               className="hero-cta group relative px-10 py-5 bg-gradient-to-r from-primary to-secondary hover:from-primary-dark hover:to-secondary-dark text-white font-bold rounded-xl transition-all duration-300 glow hover:scale-105 hover:shadow-2xl overflow-hidden"
             >
               <span className="relative z-10 flex items-center gap-2">

@@ -115,7 +115,9 @@ export default function AboutSection() {
                   Available for freelance projects on Fiverr. Let&apos;s create something exceptional!
                 </p>
                 <a
-                  href="#contact"
+                  href="https://www.fiverr.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-primary to-secondary hover:from-primary-dark hover:to-secondary-dark text-white font-bold transition-all duration-300 hover:scale-105 glow"
                 >
                   <span>Hire on Fiverr</span>

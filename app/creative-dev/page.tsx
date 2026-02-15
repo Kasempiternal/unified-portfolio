@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect } from 'react'
+import { useEffect, useRef } from 'react'
 import dynamic from 'next/dynamic'
 
 const ProjectGrid = dynamic(
@@ -9,6 +9,10 @@ const ProjectGrid = dynamic(
 )
 
 export default function CreativeDevHome() {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const lenisRef = useRef<any>(null)
+  const rafRef = useRef<number>(0)
+
   useEffect(() => {
     const initLenis = async () => {
       const Lenis = (await import('lenis')).default
@@ -17,16 +21,22 @@ export default function CreativeDevHome() {
         easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
         smoothWheel: true,
       })
+      lenisRef.current = lenis
 
       function raf(time: number) {
         lenis.raf(time)
-        requestAnimationFrame(raf)
+        rafRef.current = requestAnimationFrame(raf)
       }
 
-      requestAnimationFrame(raf)
+      rafRef.current = requestAnimationFrame(raf)
     }
 
     initLenis()
+
+    return () => {
+      cancelAnimationFrame(rafRef.current)
+      lenisRef.current?.destroy()
+    }
   }, [])
 
   return (

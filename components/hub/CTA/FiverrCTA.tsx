@@ -85,7 +85,9 @@ export default function FiverrCTA() {
             {/* CTA Button */}
             <div className="pt-4">
               <a
-                href="#contact"
+                href="https://www.fiverr.com"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 px-10 py-5 bg-accent hover:bg-accent-dark text-white text-lg font-bold rounded-xl transition-all duration-300 hover:scale-105 glow"
               >
                 <span>Hire Me on Fiverr</span>

@@ -36,7 +36,9 @@ export default function StartupLandingPage() {
 
             <div className="flex gap-6">
               <a
-                href="#"
+                href="https://twitter.com"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="text-white/60 hover:text-purple-500 transition-colors"
                 aria-label="Twitter"
               >
@@ -50,7 +52,9 @@ export default function StartupLandingPage() {
               </a>
 
               <a
-                href="#"
+                href="https://linkedin.com"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="text-white/60 hover:text-purple-500 transition-colors"
                 aria-label="LinkedIn"
               >
@@ -64,7 +68,9 @@ export default function StartupLandingPage() {
               </a>
 
               <a
-                href="#"
+                href="https://github.com"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="text-white/60 hover:text-purple-500 transition-colors"
                 aria-label="GitHub"
               >

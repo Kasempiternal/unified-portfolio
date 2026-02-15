@@ -189,6 +189,17 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
             <div className="text-sm font-bold text-green-400">AA</div>
           </div>
         </div>
+
+        {/* Always-visible Live Preview link */}
+        <Link
+          href={project.url}
+          className="flex items-center justify-center gap-2 w-full px-4 py-3 mt-2 rounded-xl bg-primary/10 hover:bg-primary/20 text-primary border border-primary/20 hover:border-primary/40 font-semibold text-sm transition-all duration-300 hover:scale-[1.02]"
+        >
+          <span>Live Preview</span>
+          <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+          </svg>
+        </Link>
       </div>
     </div>
   );

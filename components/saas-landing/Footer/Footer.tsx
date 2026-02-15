@@ -46,13 +46,19 @@ export function Footer() {
           </p>
 
           <div className="flex gap-6">
-            {['Twitter', 'GitHub', 'LinkedIn'].map((social) => (
+            {[
+              { name: 'Twitter', url: 'https://twitter.com' },
+              { name: 'GitHub', url: 'https://github.com' },
+              { name: 'LinkedIn', url: 'https://linkedin.com' },
+            ].map((social) => (
               <a
-                key={social}
-                href="#"
+                key={social.name}
+                href={social.url}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="text-gray-500 hover:text-[--site-accent] text-sm transition-colors"
               >
-                {social}
+                {social.name}
               </a>
             ))}
           </div>
